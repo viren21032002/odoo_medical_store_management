@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="medicine_information_tree_view">
+        <field name="name">medicine.information.tree.view</field>
+        <field name="model">medicine.information</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="med_id" decoration-success = "1"/>
+                <field name="reference_number"/>
+                <field name="batch_number"/>
+                <field name="is_major"/>
+                <field name="medicine_price"/>
+                <field name="quantity_of_medicine"/>
+                <field name="total_price"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="medicine_information_form_view">
+        <field name="name">medicine_information.form.view</field>
+        <field name="model">medicine.information</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="symptoms_medicine"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-circle"
+                                string="Medicine Symptoms">
+                            <span class="o_stat_value"><field name="count_symptoms"/></span>
+                        </button>
+                    </div>
+
+                    <group>
+                        <field name="med_id"/>
+                    </group>
+                    <group>
+                        <field name="available_stock"/>
+                    </group>
+                    <group>
+                        <field name="reference_number"/>
+                    </group>
+                    <group>
+                        <field name="batch_number"/>
+                    </group>
+                    <group>
+                        <field name="symptoms_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="is_major"/>
+                        <field name="medicine_price"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="quantity_of_medicine"/>
+                        </group>
+                        <group>
+                            <field name="total_price"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem name="Medical store"
+              id="medical_menu"
+              sequence='0'/>
+
+
+    <record id="medicine_information_details_report" model="ir.actions.act_window">
+           <field name="name">medicine information</field>
+           <field name="res_model">medicine.information</field>
+           <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+    <menuitem name="Billing information"
+              id="medicine_information_menu"
+              parent="medical_menu"
+              action="medicine_information_details_report"
+              sequence="6"/>
+
+
+</odoo>

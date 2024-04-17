@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="stock_management_tree_view">
+        <field name="name">stock.management.tree.view</field>
+        <field name="model">stock.management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_id"/>
+                <field name="lot_number"/>
+                <field name="quantity"/>
+                <field name="mgf_date"/>
+                <field name="exp_date"/>
+                <field name="life_span"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="stock_management_form_view">
+        <field name="name">stock.management.form.view</field>
+        <field name="model">stock.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="button_in_progress" class="oe_highlight" states="draft" string="In Progress"
+                            type="object" help="Move Appointment to In Progress state"/>
+                    <field name="state" widget="statusbar" statusbar_visible="Expiry,Not Expiry"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name_id"/>
+                    </group>
+                    <group>
+                        <field name="quantity"/>
+                    </group>
+                    <group>
+                        <field name="lot_number"/>
+                    </group>
+                    <group>
+                        <field name="mgf_date"/>
+                        <field name="exp_date"/>
+                        <field name="life_span"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="stock_management_details_report" model="ir.actions.act_window">
+           <field name="name">stock management</field>
+           <field name="res_model">stock.management</field>
+           <field name="view_mode">tree,form</field>
+        </record>
+<!--    <menuitem name="Manage Stock"-->
+<!--              id="stock_management_menu"-->
+<!--              parent="medical_menu"-->
+<!--              action="stock_management_details_report"-->
+<!--              sequence="2"/>-->
+
+</odoo>

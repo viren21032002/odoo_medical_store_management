@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="health_symptoms_tree_view">
+        <field name="name">health.symptoms.tree.view</field>
+        <field name="model">health.symptoms</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="health_symptoms_form_view">
+        <field name="name">health.symptoms.form.view</field>
+        <field name="model">health.symptoms</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="health_symptoms_details_report" model="ir.actions.act_window">
+           <field name="name">health symptoms</field>
+           <field name="res_model">health.symptoms</field>
+           <field name="view_mode">tree,form</field>
+        </record>
+    <menuitem name="List of symptoms"
+              id="health_symptoms_menu"
+              parent="medical_menu"
+              action="health_symptoms_details_report"
+              sequence="5"/>
+
+
+</odoo>

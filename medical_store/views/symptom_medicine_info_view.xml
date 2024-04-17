@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="symptom_medicine_info_tree_view">
+        <field name="name">symptom.medicine.info.tree.view</field>
+        <field name="model">symptom.medicine.info</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_id"/>
+                <field name="med_symptoms"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="symptom_medicine_info_form_view">
+        <field name="name">symptom.medicine.info.form.view</field>
+        <field name="model">symptom.medicine.info</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name_id"/>
+                        <field name="med_symptoms"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="symptom_medicine_info_details_report" model="ir.actions.act_window">
+           <field name="name">symptom medicine info</field>
+           <field name="res_model">symptom.medicine.info</field>
+           <field name="view_mode">tree,form</field>
+        </record>
+    <menuitem name="Medicine info"
+              id="medicine_info_menu"
+              parent="medical_menu"
+              action="symptom_medicine_info_details_report"
+              sequence="4"/>
+
+    <menuitem name="Stock info"
+              id="stock_management_menu"
+              parent="medical_menu"
+              action="stock_management_details_report"
+              sequence="7"/>
+
+</odoo>

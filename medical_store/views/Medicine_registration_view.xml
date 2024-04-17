@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="medicine_registration_tree_view">
+        <field name="name">medicine.registration.tree.view</field>
+        <field name="model">medicine.registration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="symptoms_ids"/>
+<!--                <field name="expiry_months"/>-->
+                <field name="stock_o2m_ids"/>
+                <field name="dosage_type"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="medicine_registration_form_view">
+        <field name="name">medicine.registration.form.view</field>
+        <field name="model">medicine.registration</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1><font color="red" size="60px" style="font-family:verdana"><b>Aktiv Software</b></font></h1>
+<!--                    <h5><font color="blue"><b><field name="write_date"/></b></font></h5>-->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="function_symptoms"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-circle"
+                                string="Stock">
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="symptoms_ids"/>
+                    </group>
+                    <group>
+                        <field name="dosage_type"/>
+                    </group>
+<!--                    <group>-->
+<!--                        <field name="expiry_months"/>-->
+<!--                    </group>-->
+                    <group>
+                        <field name="stock_o2m_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="medicine_registration_details_report" model="ir.actions.act_window">
+           <field name="name">medicine registration</field>
+           <field name="res_model">medicine.registration</field>
+           <field name="view_mode">tree,form</field>
+        </record>
+    <menuitem name="Medicine registration"
+              id="medicine_registration_menu"
+              parent="medical_menu"
+              action="medicine_registration_details_report"
+              sequence="1"/>
+
+
+</odoo>

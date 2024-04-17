@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Sequences for sale.order -->
+        <record id="lot_record" model="ir.sequence">
+            <field name="name">Lot record</field>
+            <field name="code">lot.record</field>
+            <field name="prefix">LOT</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

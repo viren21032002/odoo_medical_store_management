@@ -1,0 +1,26 @@
+{
+    'name': "Medical Store",
+    "summary":"Medical store web",
+    "description": "",
+    "version": "15.0.0.1.0",
+    "category": "Management",
+    "website": "",
+    "depends": [],
+    "data": [
+        'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'data/ir_lot_data.xml',
+        'views/Medicine_registration_view.xml',
+        'views/medicine_price_view.xml',
+        'views/stock_management_view.xml',
+        'views/symptom_medicine_info_view.xml',
+        'views/all_symptoms_view.xml',
+        'views/billing_information_view.xml',
+    ],
+    "demo": [],
+    "qweb": [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="medicine_price_tree_view">
+        <field name="name">medicine.price.tree.view</field>
+        <field name="model">medicine.price</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="medicine_id"/>
+                <field name="name"/>
+<!--                <field name="gst"/>-->
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="medicine_price_form_view">
+        <field name="name">medicine.price.form.view</field>
+        <field name="model">medicine.price</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="medicine_id"/>
+                        <field name="name"/>
+<!--                        <field name="gst"/>-->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="medicine_price_details_report" model="ir.actions.act_window">
+           <field name="name">medicine price</field>
+           <field name="res_model">medicine.price</field>
+           <field name="view_mode">tree,form</field>
+        </record>
+    <menuitem name="Medicine pricing"
+              id="medicine_price_menu"
+              parent="medical_menu"
+              action="medicine_price_details_report"
+              sequence="3"/>
+
+
+</odoo>
