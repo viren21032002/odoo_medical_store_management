@@ -1,0 +1,2 @@
+# odoo_medical_store_management
+odoo_medical_store_management
